@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja" class="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClimateWatchMan — 気候危機を理解し、止めるためのサイト集</title>
+<meta name="author" content="Tatsuya Mori (@ttmori)">
+<meta name="description" content="気候危機の全体像、排出が確定させる未来の犠牲者、食べ方から変える方法。一次資料にもとづく小さなサイト集。Small, sourced sites for understanding the climate crisis — and helping to stop it.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ClimateWatchMan — 気候危機を理解し、止めるために">
+<meta property="og:description" content="臨界点の手前で・静かな戦争・830億の理由。どこから読んでも、気候危機の全体がつながって見えるサイト集です。">
+<meta property="og:site_name" content="ClimateWatchMan">
+<meta property="og:url" content="https://tamorist.github.io/">
+<meta property="og:image" content="https://tamorist.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@ttmori">
+<link rel="canonical" href="https://tamorist.github.io/">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23141614'/%3E%3Ccircle cx='10' cy='16' r='3.4' fill='%23e0634c'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23e5483b'/%3E%3Ccircle cx='22' cy='16' r='3.4' fill='%234f9a74'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ea; --bg2: #fffdf8; --bg3: #ece6da; --ink: #1d1f1c; --muted: #6b6a63; --faint: #d9d2c4; --dark: #141614;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.8; font-size: 16px;
+    font-family: Inter, "Noto Sans JP", -apple-system, "Hiragino Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+  html.ja body { font-family: "Noto Sans JP", -apple-system, "Hiragino Sans", sans-serif; }
+  html.ja .en, html.en .ja { display: none !important; }
+  .serif { font-family: "Noto Serif JP", Georgia, serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  a { color: inherit; }
+  .eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; font-weight: 700; }
+  h2 { font-size: clamp(24px, 4vw, 34px); line-height: 1.35; margin: 0 0 12px; font-weight: 900; }
+
+  .top { position: sticky; top: 0; z-index: 10; background: rgba(246,242,234,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--faint); }
+  .top .wrap { display: flex; align-items: center; gap: 14px; height: 52px; font-size: 13px; }
+  .brand { font-weight: 900; text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+  .brand i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: -4px; }
+  .lang { margin-left: auto; display: flex; border: 1px solid var(--faint); border-radius: 8px; overflow: hidden; }
+  .lang button { font: inherit; font-size: 12px; background: transparent; color: var(--muted); border: 0; padding: 5px 10px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); font-weight: 700; }
+
+  .hero { background: var(--dark); color: #efece4; padding: 88px 0 72px; }
+  .hero h1 { font-size: clamp(30px, 5.6vw, 54px); line-height: 1.35; font-weight: 900; margin: 0 0 22px; }
+  .hero h1 .hl { color: #f09a7f; }
+  .hero p { color: #bdbab1; max-width: 680px; font-size: clamp(15px, 2.2vw, 18px); margin: 0 0 12px; }
+
+  section { padding: 72px 0; }
+  .lead { color: #3c3e39; max-width: 700px; margin: 0 0 8px; }
+
+  .sites { display: grid; gap: 22px; margin-top: 30px; }
+  .site { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); background: var(--bg2); border: 1px solid var(--faint); border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--ink); transition: transform .15s, box-shadow .15s; }
+  .site:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+  .site .img { background: var(--dark); aspect-ratio: 1200 / 630; }
+  .site .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .site .body { padding: 22px 24px; display: flex; flex-direction: column; gap: 8px; border-left: 5px solid var(--c); }
+  .site .step { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: color-mix(in srgb, var(--c) 80%, #000); }
+  .site h3 { font-size: 24px; margin: 0; line-height: 1.3; }
+  .site h3 small { display: block; font-size: 13px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+  .site p { margin: 0; font-size: 14.5px; color: #3c3e39; }
+  .site .for { font-size: 13px; color: var(--muted); }
+  .site .for b { color: var(--ink); }
+  .site .go { margin-top: auto; align-self: flex-start; background: var(--c); color: #fff; font-weight: 800; font-size: 14px; border-radius: 999px; padding: 9px 18px; }
+  @media (max-width: 760px) { .site { grid-template-columns: 1fr; } .site .body { border-left: 0; border-top: 5px solid var(--c); } }
+
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 18px; font-size: 14px; }
+  .flow span.n { display: inline-flex; align-items: center; gap: 6px; background: var(--bg2); border: 1px solid var(--faint); border-radius: 999px; padding: 6px 14px; font-weight: 700; }
+  .flow span.n i { width: 10px; height: 10px; border-radius: 50%; }
+  .flow .arr { color: var(--muted); }
+
+  .props { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 22px; }
+  .props a { display: block; text-decoration: none; background: var(--bg2); border: 1px solid var(--faint); border-radius: 14px; padding: 16px 18px; }
+  .props a:hover { border-color: var(--ink); }
+  .props small { display: block; font-size: 12px; color: var(--muted); font-weight: 700; letter-spacing: .08em; }
+  .props b { font-size: 15px; line-height: 1.5; }
+
+  .author { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; background: var(--dark); color: #efece4; border-radius: 20px; padding: 28px; margin-top: 10px; }
+  .author h3 { margin: 0 0 6px; font-size: 20px; }
+  .author p { color: #bdbab1; font-size: 14.5px; margin: 0 0 12px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .links a { text-decoration: none; border: 1px solid #3a3f39; border-radius: 999px; padding: 7px 14px; font-size: 13.5px; font-weight: 700; color: #efece4; }
+  .links a:hover { background: #22261f; }
+  .links a span { color: #9d9a91; font-weight: 400; margin-left: 6px; }
+  @media (max-width: 760px) { .author { grid-template-columns: 1fr; } }
+
+  footer { padding: 32px 0 48px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--faint); }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span aria-hidden="true"><i style="background:#c75c1a"></i> <i style="background:#d23c2f"></i> <i style="background:#4f9a74"></i></span>ClimateWatchMan</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="ja">日本語</button><button data-lang="en">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#807d75">ClimateWatchMan</p>
+    <h1 class="serif">
+      <span class="ja">気候危機を、理解する。<br><span class="hl">そして、止める。</span></span>
+      <span class="en">Understand the climate crisis.<br><span class="hl">Then help stop it.</span></span>
+    </h1>
+    <p><span class="ja">気候危機の全体像、いまの排出が確定させる未来の犠牲者、毎日の食事から変えられること。それぞれの入口から、ひとつの問題がつながって見えるように作った、小さなサイト集です。数字にはすべて出典をつけ、私たち自身の概算にはそう書いています。</span><span class="en">The whole picture of the climate crisis, the future deaths today’s emissions lock in, and what we can change starting with our plates. A small collection of sites, each a different way into one connected problem. Every number is sourced, and our own estimates are labelled as such.</span></p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="ja">サイト</span><span class="en">Sites</span></p>
+    <h2><span class="ja">どこから読んでも、つながっています。</span><span class="en">Start anywhere — it all connects.</span></h2>
+    <p class="lead"><span class="ja">初めての方は、全体像から実感へ、そして自分にできることへ、の順がおすすめです。</span><span class="en">New here? We suggest going from the big picture, to what it means in lives, to what you can do.</span></p>
+    <div class="flow" id="flow"></div>
+    <div class="sites" id="sites"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow"><span class="ja">解決に向けて</span><span class="en">A way out</span></p>
+    <h2><span class="ja">足りないのは、技術ではなくルール。</span><span class="en">What’s missing isn’t technology. It’s the rules.</span></h2>
+    <p class="lead"><span class="ja">サイトの背景にある考え方と、社会の仕組みをどう作り直すかの提案は、記事にまとめています。</span><span class="en">The thinking behind these sites, and a proposal for how to redesign the system, are set out in longer articles.</span></p>
+    <div class="props" id="props"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="author">
+      <div>
+        <p class="eyebrow" style="color:#807d75"><span class="ja">作者について</span><span class="en">About the author</span></p>
+        <h3>Tatsuya Mori / ClimateWatchMan</h3>
+        <p><span class="ja">気候危機について調べ、発信しています。サイトはこれからも、ひとつずつ増やしていく予定です。</span><span class="en">I research and write about the climate crisis. More sites will be added here, one at a time.</span></p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:#807d75"><span class="ja">フォロー・記事</span><span class="en">Follow &amp; read</span></p>
+        <div class="links">
+          <a href="https://x.com/ttmori">X<span>@ttmori</span></a>
+          <a href="https://note.com/ttmori">note<span class="ja">日本語の記事</span><span class="en">Japanese articles</span></a>
+          <a href="https://substack.com/@ttmori">Substack<span class="ja">英語の記事</span><span class="en">English articles</span></a>
+          <a href="https://github.com/tamorist">GitHub<span>tamorist</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="ja">ClimateWatchMan / Tatsuya Mori（@ttmori）· 各サイトのコードは MIT、コンテンツは <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>（詳しくは各サイトへ）</span>
+    <span class="en">ClimateWatchMan / Tatsuya Mori (@ttmori) · Code MIT, content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> on each site (see each site for details)</span>
+  </div>
+</footer>
+
+<script>
+/* サイトの一覧。新しいサイトを作ったら、ここに1件足すだけで、上の「おすすめの順番」とカードに出ます。
+   img / imgEn：各サイトのシェア画像（英語版がなければ img を使う） */
+const SITES = [
+  { url: 'https://tamorist.github.io/tipping-point/', color: '#c75c1a',
+    img: 'https://tamorist.github.io/tipping-point/og.png', imgEn: 'https://tamorist.github.io/tipping-point/og-en.png',
+    ja: { step: '全体像をつかむ', title: '臨界点の手前で', sub: 'Before the Tipping Point',
+      desc: '気候変動の全体像を1ページに。1.5℃までに残された炭素（リアルタイム）、越えたら戻れない臨界点とその連鎖、排出が止まらない理由、そして何ができるか。主流の評価と「危険側」の評価を切り替えて比べられます。',
+      for: '<b>こんな人に：</b>気候変動で何が起きているのか、まず全体を知りたい人' },
+    en: { step: 'See the whole picture', title: 'Before the Tipping Point', sub: '臨界点の手前で',
+      desc: 'The climate crisis on one page: the carbon budget left for 1.5°C (live), tipping points and their cascades, why emissions keep rising, and what we can do. Switch between the mainstream and high-risk views of the science.',
+      for: '<b>For:</b> anyone who wants the big picture first' } },
+  { url: 'https://tamorist.github.io/slow-war/', color: '#d23c2f',
+    img: 'https://tamorist.github.io/slow-war/og.png',
+    ja: { step: '命の数で実感する', title: '静かな戦争', sub: 'The Slow War',
+      desc: 'いまの CO₂ 排出が「確定」させる未来の犠牲者を、史上最悪の戦争と比べて見るサイト。移動・食事・住まい・買い物を選ぶと、あなたの1日が、国や世界の全員なら何人分になるかも計算できます。',
+      for: '<b>こんな人に：</b>大きな数字を、自分ごととして感じたい人' },
+    en: { step: 'Feel it in lives', title: 'The Slow War', sub: '静かな戦争',
+      desc: 'How today’s CO₂ emissions lock in future deaths, compared with history’s deadliest wars. Pick your travel, meals, home and shopping to see what your own day adds up to if everyone lived it.',
+      for: '<b>For:</b> anyone who wants the numbers to feel real' } },
+  { url: 'https://tamorist.github.io/83-billion/', color: '#2f6b4f',
+    img: 'https://tamorist.github.io/83-billion/og.png', imgEn: 'https://tamorist.github.io/83-billion/og-en.png',
+    ja: { step: '食卓から変える', title: '830億の理由', sub: '83 Billion Reasons',
+      desc: '毎年、約830億の陸の動物が食べるために殺されています。動物・地球・健康の根拠と、肉を植物性たんぱく質に替えると何が変わるかの計算。まず半分から、無理なく始める方法も。',
+      for: '<b>こんな人に：</b>今日からできることを、具体的に知りたい人' },
+    en: { step: 'Change it at the table', title: '83 Billion Reasons', sub: '830億の理由',
+      desc: 'About 83 billion land animals are killed for food every year. The evidence on animals, the planet and health, a calculator for swapping meat for plant protein — and an easy way to start with half.',
+      for: '<b>For:</b> anyone who wants something concrete to do today' } },
+];
+
+const PROPS = {
+  ja: [
+    ['シリーズの導入', '【まずはこれから】気候危機の全体像――「何が起きているのか」「なぜ止まらないのか」「何を変えるべきか」を1本で', 'https://note.com/ttmori/n/n6f31ff35f67f'],
+    ['提案の概要', '地球の物理的限界と未来世代の権利に基づく「文明システム再設計」に向けたグローバル協力の呼びかけ', 'https://note.com/ttmori/n/n7d35de117943'],
+    ['提案の詳細', '生存のための再設計：資本主義2.0とグローバル・デモクラシーへの青写真', 'https://note.com/ttmori/n/ne11e0dcd5e8a'],
+  ],
+  en: [
+    ['Proposal — summary', 'A Call for Global Cooperation Toward “Civilization System Redesign” Based on Planetary Boundaries and the Rights of Future Generations', 'https://ttmori.substack.com/p/a-call-for-global-cooperation-toward-67b'],
+    ['Proposal — full', 'Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy', 'https://ttmori.substack.com/p/survival-redesign-a-blueprint-for'],
+  ],
+};
+
+/* GoatCounter（アクセス数の計測）。goatcounter.com で登録したサイトコード。公開サイトでのみ計測 */
+const GOATCOUNTER_CODE = 'climatewatchman';
+(function () {
+  if (!GOATCOUNTER_CODE || !/\.github\.io$/.test(location.hostname)) return;
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = `https://${GOATCOUNTER_CODE}.goatcounter.com/count`;
+  document.head.appendChild(s);
+})();
+
+const $ = id => document.getElementById(id);
+let lang = 'ja';
+try { const s = localStorage.getItem('cwm-lang'); if (s === 'en' || s === 'ja') lang = s; } catch (e) {}
+
+function render() {
+  const go = lang === 'ja' ? 'サイトへ ↗' : 'Visit ↗';
+  $('flow').innerHTML = SITES.map((s, i) => `<span class="n"><i style="background:${s.color}"></i>${i + 1}. ${s[lang].step}</span>`).join('<span class="arr">→</span>');
+  $('sites').innerHTML = SITES.map((s, i) => {
+    const t = s[lang], img = lang === 'en' && s.imgEn ? s.imgEn : s.img;
+    return `<a class="site" href="${s.url}" style="--c:${s.color}">
+      <span class="img"><img src="${img}" alt="${t.title}" loading="lazy"></span>
+      <span class="body"><span class="step">${i + 1} · ${t.step}</span><h3>${t.title}<small>${t.sub}</small></h3>
+        <p>${t.desc}</p><span class="for">${t.for}</span><span class="go">${go}</span></span></a>`;
+  }).join('');
+  $('props').innerHTML = PROPS[lang].map(([k, t, u]) => `<a href="${u}"><small>${k}</small><b>${t}</b></a>`).join('');
+}
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.className = l;
+  try { localStorage.setItem('cwm-lang', l); } catch (e) {}
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+  document.title = l === 'ja' ? 'ClimateWatchMan — 気候危機を理解し、止めるためのサイト集' : 'ClimateWatchMan — sites for understanding and stopping the climate crisis';
+  render();
+}
+document.addEventListener('click', e => { const b = e.target.closest('button[data-lang]'); if (b) setLang(b.dataset.lang); });
+setLang(lang);
+</script>
+</body>
+</html>

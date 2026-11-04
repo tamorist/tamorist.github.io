@@ -46,7 +46,7 @@
   .gpick:not(.first) { display: inline-block; padding: 6px 10px; border-radius: 999px; }
   .gpick:not(.first) .gp-q, .gpick:not(.first) button small { display: none; }
   .gpick:not(.first) button { padding: 3px 11px; border-radius: 999px; font-size: 12.5px; }
-  html.en .gpick, .gpick[hidden] { display: none !important; }
+  .gpick[hidden] { display: none !important; }
   html.noguide .guide, html.noguide .sw-guide { display: none !important; }
   .guide { display: flex; align-items: flex-end; gap: 10px; margin: 6px 0 22px; max-width: 680px; }
   .guide .gchar { flex: 0 0 72px; width: 72px; height: 72px; }
@@ -141,14 +141,14 @@
     <p class="eyebrow"><span class="ja">サイト</span><span class="en">Sites</span></p>
     <h2><span class="ja">どこから読んでも、つながっています。</span><span class="en">Start anywhere — it all connects.</span></h2>
     <p class="lead"><span class="ja">初めての方は、全体像から実感へ、そして自分にできることへ、の順がおすすめです。</span><span class="en">New here? We suggest going from the big picture, to what it means in lives, to what you can do.</span></p>
-    <div class="gpick first" id="guidePick" role="group" aria-label="ちきゅうさんの解説">
-      <p class="gp-q">はじめに、読み方を選べます</p>
-      <div class="gp-btns"><span class="gp-l">ちきゅうさんの解説</span>
-        <button data-guide-set="on">🌍 解説あり<small>ちきゅうさんと、やさしい言葉で読む</small></button>
-        <button data-guide-set="off">解説なし<small>データと本文だけで読む</small></button>
+    <div class="gpick first" id="guidePick" role="group" aria-label="Guide">
+      <p class="gp-q"><span class="ja">はじめに、読み方を選べます</span><span class="en">How would you like to read?</span></p>
+      <div class="gp-btns"><span class="gp-l"><span class="ja">ちきゅうさんの解説</span><span class="en">Little Earth’s guide</span></span>
+        <button data-guide-set="on">🌍 <span class="ja">解説あり</span><span class="en">Guide on</span><small><span class="ja">ちきゅうさんと、やさしい言葉で読む</span><span class="en">Read along with Little Earth, in plain words</span></small></button>
+        <button data-guide-set="off"><span class="ja">解説なし</span><span class="en">Guide off</span><small><span class="ja">データと本文だけで読む</span><span class="en">Just the data and the text</span></small></button>
       </div>
     </div>
-    <div class="guide ja"><span class="gchar" data-mood="happy"></span><p class="bubble"><span class="nm">ちきゅうさん</span>日本語版の3つのサイトでは、わたし<b>「ちきゅうさん」</b>が案内するよ。重い数字は、心の準備ができたときにボタンで表示できるから、安心して読んでみてね。</p></div>
+    <div class="guide"><span class="gchar" data-mood="happy"></span><p class="bubble"><span class="nm"><span class="ja">ちきゅうさん</span><span class="en">Little Earth</span></span><span class="ja">4つのサイトでは、わたし<b>「ちきゅうさん」</b>が案内するよ。重い数字は、心の準備ができたときにボタンで表示できるから、安心して読んでみてね。案内がいらないときは「解説なし」を選んでね。</span><span class="en">Hi, I’m Little Earth! On these four sites I can walk you through the pages in plain words. If you don’t need me, just choose “Guide off”.</span></p></div>
     <div class="flow" id="flow"></div>
     <div class="sites" id="sites"></div>
   </div>
@@ -274,6 +274,7 @@ function setLang(l) {
   document.documentElement.lang = l;
   document.documentElement.className = l;
   try { localStorage.setItem('cwm-lang', l); } catch (e) {}
+  if (window.cwmGuideApply) window.cwmGuideApply();
   document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
   document.title = l === 'ja' ? 'ClimateWatchMan — 気候危機を理解し、止めるためのサイト集' : 'ClimateWatchMan — sites for understanding and stopping the climate crisis';
   render();
@@ -308,11 +309,14 @@ setLang(lang);
   const KEY = 'cwm-guide';
   let g = null;
   try { const q = new URLSearchParams(location.search).get('guide'); if (q === 'on' || q === 'off') { g = q; localStorage.setItem(KEY, q); } else g = localStorage.getItem(KEY); } catch (e) {}
+  // 選ぶ前は、日本語では「解説あり」、英語では「解説なし」。選んだあとは、どちらの言語でもその選択に従う
+  const L = () => { const h = document.documentElement; return h.classList.contains('en') ? 'en' : h.classList.contains('ja') ? 'ja' : (h.lang === 'ja' ? 'ja' : 'en'); };
   const apply = () => {
-    document.documentElement.classList.toggle('noguide', g === 'off');
+    const chosen = g === 'on' || g === 'off', eff = chosen ? g : (L() === 'ja' ? 'on' : 'off');
+    document.documentElement.classList.toggle('noguide', eff === 'off');
     const box = document.getElementById('guidePick'); if (!box) return;
-    box.classList.toggle('first', g !== 'on' && g !== 'off');
-    box.querySelectorAll('[data-guide-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.guideSet === g));
+    box.classList.toggle('first', !chosen && L() === 'ja');
+    box.querySelectorAll('[data-guide-set]').forEach(b => b.setAttribute('aria-pressed', (chosen || L() === 'en') && b.dataset.guideSet === eff));
   };
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-guide-set]'); if (!b) return;

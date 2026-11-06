@@ -148,7 +148,7 @@
         <button data-guide-set="off"><span class="ja">解説なし</span><span class="en">Guide off</span><small><span class="ja">データと本文だけで読む</span><span class="en">Just the data and the text</span></small></button>
       </div>
     </div>
-    <div class="guide"><span class="gchar" data-mood="happy"></span><p class="bubble"><span class="nm"><span class="ja">ちきゅうさん</span><span class="en">Little Earth</span></span><span class="ja">4つのサイトでは、わたし<b>「ちきゅうさん」</b>が案内するよ。重い数字は、心の準備ができたときにボタンで表示できるから、安心して読んでみてね。案内がいらないときは「解説なし」を選んでね。</span><span class="en">Hi, I’m Little Earth! On these four sites I can walk you through the pages in plain words. If you don’t need me, just choose “Guide off”.</span></p></div>
+    <div class="guide"><span class="gchar" data-mood="happy"></span><p class="bubble"><span class="nm"><span class="ja">ちきゅうさん</span><span class="en">Little Earth</span></span><span class="ja">5つのサイトでは、わたし<b>「ちきゅうさん」</b>が案内するよ。重い数字は、心の準備ができたときにボタンで表示できるから、安心して読んでみてね。案内がいらないときは「解説なし」を選んでね。</span><span class="en">Hi, I’m Little Earth! On these five sites I can walk you through the pages in plain words. If you don’t need me, just choose “Guide off”.</span></p></div>
     <div class="flow" id="flow"></div>
     <div class="sites" id="sites"></div>
   </div>
@@ -227,6 +227,14 @@ const SITES = [
     en: { step: 'Change the system', title: 'Enough for All', sub: '足りる経済へ',
       desc: 'Population and emissions surged in the last 50 years, and humanity now uses 1.7 Earths. Wealth inequality and emissions inequality have the same shape. Data on planetary limits, sectors and renewables “added on top” show why we must share wealth fairly and leave the overconsumption economy.',
       for: '<b>For:</b> anyone who wants to understand the economics at the root of the crisis, and the direction of change' } },
+  { url: 'https://tamorist.github.io/rewrite/', color: '#1f6f78',
+    img: 'https://tamorist.github.io/rewrite/og.png', imgEn: 'https://tamorist.github.io/rewrite/og-en.png',
+    ja: { step: '解決の設計図を見る', title: 'ルールを書き換える', sub: 'Rewrite the Rules',
+      desc: '気候危機が止まらないのは、努力が足りないからではなく「減らすと損をする」ルールのせい。化石燃料に一方向の上限をかけ、収入の9割を市民に返し、過去に得をした人にも負担を求め、入る価値のあるクラブから広げる。減らすほど得をするように、ルールを書き換える提案の概要です。',
+      for: '<b>こんな人に：</b>問題はわかった。では、どうすれば止められるのかを知りたい人' },
+    en: { step: 'See a blueprint for change', title: 'Rewrite the Rules', sub: 'ルールを書き換える',
+      desc: 'The crisis isn’t stuck for lack of effort, but because the rules make reducing a losing move. A one-way cap on fossil fuels, 90% of the revenue back to citizens, a share from those who gained most, and a club worth joining: an overview of a proposal to make cutting pay.',
+      for: '<b>For:</b> anyone who gets the problem and wants to know how it could actually be stopped' } },
 ];
 
 const PROPS = {
@@ -234,10 +242,12 @@ const PROPS = {
     ['シリーズの導入', '【まずはこれから】気候危機の全体像――「何が起きているのか」「なぜ止まらないのか」「何を変えるべきか」を1本で', 'https://note.com/ttmori/n/n6f31ff35f67f'],
     ['提案の概要', '地球の物理的限界と未来世代の権利に基づく「文明システム再設計」に向けたグローバル協力の呼びかけ', 'https://note.com/ttmori/n/n7d35de117943'],
     ['提案の詳細', '生存のための再設計：資本主義2.0とグローバル・デモクラシーへの青写真', 'https://note.com/ttmori/n/ne11e0dcd5e8a'],
+    ['提案の本体（サイト）', '限界の内側で、舵を取る ―― Youth GCC・Global Citizen Will Platform・Planetary OS', 'https://tamorist.github.io/steering/ja/'],
   ],
   en: [
     ['Proposal — summary', 'A Call for Global Cooperation Toward “Civilization System Redesign” Based on Planetary Boundaries and the Rights of Future Generations', 'https://ttmori.substack.com/p/a-call-for-global-cooperation-toward-67b'],
     ['Proposal — full', 'Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy', 'https://ttmori.substack.com/p/survival-redesign-a-blueprint-for'],
+    ['Proposal — site', 'Steering Within Limits: Youth GCC, the Global Citizen Will Platform and Planetary OS', 'https://tamorist.github.io/steering/'],
   ],
 };
 

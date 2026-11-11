@@ -96,6 +96,19 @@
   .flow span.n i { width: 10px; height: 10px; border-radius: 50%; }
   .flow .arr { color: var(--muted); }
 
+  .plan { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .plan > a, .plan > div { display: block; text-decoration: none; color: var(--ink); background: var(--bg2); border: 1px solid var(--faint); border-top: 5px solid #1f6f78; border-radius: 16px; padding: 18px 20px; }
+  .plan > a:hover { border-color: #1f6f78; }
+  .plan small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #1f6f78; }
+  .plan b { display: block; font-size: 20px; line-height: 1.4; margin: 2px 0 6px; }
+  .plan p { margin: 0; font-size: 14px; color: #3c3e39; }
+  .plan .go { display: inline-block; margin-top: 10px; font-weight: 800; font-size: 14px; color: #1f6f78; text-decoration: none; }
+  .plan .sub { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .plan .sub a { font-size: 13px; font-weight: 700; text-decoration: none; color: #1f6f78; border: 1px solid #a9d3cf; border-radius: 999px; padding: 4px 12px; }
+  .plan .sub a:hover { background: #e1f0ee; }
+  @media (max-width: 640px) { .plan { grid-template-columns: 1fr; } }
+  .basis-h { font-size: 17px; margin: 40px 0 4px; }
+  .basis-n { font-size: 13.5px; color: var(--muted); margin: 0; max-width: 700px; }
   .props { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 22px; }
   .props a { display: block; text-decoration: none; background: var(--bg2); border: 1px solid var(--faint); border-radius: 14px; padding: 16px 18px; }
   .props a:hover { border-color: var(--ink); }
@@ -158,7 +171,10 @@
   <div class="wrap">
     <p class="eyebrow"><span class="ja">解決に向けて</span><span class="en">A way out</span></p>
     <h2><span class="ja">足りないのは、技術ではなくルール。</span><span class="en">What’s missing isn’t technology. It’s the rules.</span></h2>
-    <p class="lead"><span class="ja">サイトの背景にある考え方と、社会の仕組みをどう作り直すかの提案は、記事にまとめています。</span><span class="en">The thinking behind these sites, and a proposal for how to redesign the system, are set out in longer articles.</span></p>
+    <p class="lead"><span class="ja">排出が止まらないのは、減らすと損をするルールのせい。そのルールを、減らすほど得をするように書き換える具体策を、提案サイト「限界の内側で、舵を取る」にまとめています。</span><span class="en">Emissions keep rising because the rules make reducing a losing move. A concrete plan to rewrite them so that cutting pays is set out on the proposal site <i>Steering Within Limits</i>.</span></p>
+    <div class="plan" id="plan"></div>
+    <h3 class="basis-h"><span class="ja">提案の土台にある考え方</span><span class="en">The thinking behind the proposal</span></h3>
+    <p class="basis-n"><span class="ja">なぜこの方向なのか。具体策のもとになった基本原理と構想を、記事にまとめています。具体的な設計と数値は、提案サイトの最新版をご覧ください。</span><span class="en">Why this direction: the principles and big picture the plan grew from, set out in longer articles. For the current design and figures, see the proposal site.</span></p>
     <div class="props" id="props"></div>
   </div>
 </section>
@@ -237,17 +253,25 @@ const SITES = [
       for: '<b>For:</b> anyone who gets the problem and wants to know how it could actually be stopped' } },
 ];
 
+/* 解決の具体策（上の段）：1ページの紹介サイトと、提案サイトの本体。日本語では日本語版へ */
+const STEER = 'https://tamorist.github.io/steering/';
+const PLAN = {
+  ja: { rw: ['1ページで知る', 'ルールを書き換える', '減らすと損をするルールを、減らすほど得をするルールへ。提案の全体を、図とやさしい言葉で1ページに。', 'サイトへ ↗'],
+        st: ['提案の本体', '限界の内側で、舵を取る', 'Planetary OS・Youth GCC・Global Citizen Will Platform。3つの提案の全文と、還元シミュレーター、参加の案内。', [['絵で見る提案（約6分）', 'pictures/'], ['1ページ概要', 'overview/'], ['はじめての方へ', 'start/'], ['シミュレーター', 'tools/simulator/']]] },
+  en: { rw: ['ON ONE PAGE', 'Rewrite the Rules', 'From rules where cutting is a losing move to rules where it pays: the whole proposal on one page, in plain words and pictures.', 'Visit ↗'],
+        st: ['THE FULL PROPOSAL', 'Steering Within Limits', 'Planetary OS, the Youth GCC and the Global Citizen Will Platform: the three proposals in full, a dividend simulator, and how to join.', [['In pictures (6 min)', 'pictures/'], ['One-page overview', 'overview/'], ['Start here', 'start/'], ['Simulator', 'tools/simulator/']]] },
+};
+/* 提案の土台にある考え方（下の段）：基本原理と構想をまとめた記事 */
 const PROPS = {
   ja: [
-    ['シリーズの導入', '【まずはこれから】気候危機の全体像――「何が起きているのか」「なぜ止まらないのか」「何を変えるべきか」を1本で', 'https://note.com/ttmori/n/n6f31ff35f67f'],
-    ['提案の概要', '地球の物理的限界と未来世代の権利に基づく「文明システム再設計」に向けたグローバル協力の呼びかけ', 'https://note.com/ttmori/n/n7d35de117943'],
-    ['提案の詳細', '生存のための再設計：資本主義2.0とグローバル・デモクラシーへの青写真', 'https://note.com/ttmori/n/ne11e0dcd5e8a'],
-    ['提案の本体（サイト）', '限界の内側で、舵を取る ―― Youth GCC・Global Citizen Will Platform・Planetary OS', 'https://tamorist.github.io/steering/ja/'],
+    ['原理と呼びかけ', '地球の物理的限界と未来世代の権利に基づく「文明システム再設計」に向けたグローバル協力の呼びかけ', 'https://note.com/ttmori/n/n7d35de117943'],
+    ['全体構想', '生存のための再設計：資本主義2.0とグローバル・デモクラシーへの青写真', 'https://note.com/ttmori/n/ne11e0dcd5e8a'],
+    ['問題の分析', 'なぜ脱炭素は進まないのか ―― 問題は「技術」ではなく「経済ルール」である', 'https://note.com/ttmori/n/ncce93c710c01'],
+    ['気候危機の全体像', '【まずはこれから】気候危機の全体像――「何が起きているのか」「なぜ止まらないのか」「何を変えるべきか」を1本で', 'https://note.com/ttmori/n/n6f31ff35f67f'],
   ],
   en: [
-    ['Proposal — summary', 'A Call for Global Cooperation Toward “Civilization System Redesign” Based on Planetary Boundaries and the Rights of Future Generations', 'https://ttmori.substack.com/p/a-call-for-global-cooperation-toward-67b'],
-    ['Proposal — full', 'Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy', 'https://ttmori.substack.com/p/survival-redesign-a-blueprint-for'],
-    ['Proposal — site', 'Steering Within Limits: Youth GCC, the Global Citizen Will Platform and Planetary OS', 'https://tamorist.github.io/steering/'],
+    ['Principles and a call to act', 'A Call for Global Cooperation Toward “Civilization System Redesign” Based on Planetary Boundaries and the Rights of Future Generations', 'https://ttmori.substack.com/p/a-call-for-global-cooperation-toward-67b'],
+    ['The big picture', 'Survival Redesign: A Blueprint for Capitalism 2.0 and Global Democracy', 'https://ttmori.substack.com/p/survival-redesign-a-blueprint-for'],
   ],
 };
 
@@ -277,6 +301,9 @@ function render() {
       <span class="body"><span class="step">${i + 1} · ${t.step}</span><h3>${t.title}<small>${t.sub}</small></h3>
         <p>${t.desc}</p><span class="for">${t.for}</span><span class="go">${go}</span></span></a>`;
   }).join('');
+  const P = PLAN[lang], sb = STEER + (lang === 'ja' ? 'ja/' : '');
+  $('plan').innerHTML = `<a href="https://tamorist.github.io/rewrite/${lang === 'ja' ? '?lang=ja' : ''}"><small>${P.rw[0]}</small><b>${P.rw[1]}</b><p>${P.rw[2]}</p><span class="go">${P.rw[3]}</span></a>
+    <div><small>${P.st[0]}</small><b><a href="${sb}" style="color:inherit;text-decoration:none">${P.st[1]} ↗</a></b><p>${P.st[2]}</p><div class="sub">${P.st[3].map(([t, u]) => `<a href="${sb}${u}">${t}</a>`).join('')}</div></div>`;
   $('props').innerHTML = PROPS[lang].map(([k, t, u]) => `<a href="${u}"><small>${k}</small><b>${t}</b></a>`).join('');
 }
 function setLang(l) {
